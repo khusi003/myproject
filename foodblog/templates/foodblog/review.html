@@ -81,18 +81,16 @@
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
 						<h4>Leave a comment</h4>
-						<form class="contact-form" action="" method="POST">
+						<form class="contact-form" action="{% url 'update-review' %}" method="POST">
+                            {% csrf_token %}
 							<div class="row">
-								<div class="col-md-12">
-									<input type="text" placeholder="Name">
-								</div>
 								<div class="col-md-6">
-									<input type="hidden" placeholder="E-mail">
+									<input type="hidden" placeholder="E-mail" name="email" value="{{uid.email}}">
 								</div>
 								<div class="col-md-12">
 									<input type="text" placeholder="Subject" name="subject">
 									<textarea placeholder="Message" name="message"></textarea>
-									<button class="site-btn">Send</button>
+									<button class="site-btn" name="submit">Send</button>
 								</div>
 							</div>
 						</form>

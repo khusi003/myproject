@@ -12,7 +12,7 @@ class User(models.Model):
     pic=models.FileField(upload_to='foodbolg/img/',default='foodbolg/img/avatar.png')
 
 class Review(models.Model):
-    u_id = models.ForeignKey(User, on_delete = models.CASCADE)  
+    uid = models.ForeignKey(User, on_delete = models.CASCADE)  
     subject = models.CharField(max_length=500)
     message = models.CharField(max_length=500)
      

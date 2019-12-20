@@ -36,5 +36,7 @@ urlpatterns = [
     path('foodgallary',views.foodgallary,name='foodgallary'),
     path('upload-gallary/',views.upload_gallary,name='upload-gallary'),
     path('review/',views.review,name='review'),
+    path('update-review/',views.update_review,name='update-review'),
+
 
 ]

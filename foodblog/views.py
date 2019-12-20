@@ -152,4 +152,17 @@ def upload_gallary(request):
 
 
 def review(request):
-    return render(request,'foodblog/review.html')        
+    if 'email' in request.session:
+        uid = User.objects.get(email=request.session['email'])
+        return render(request,'foodblog/review.html',{'uid':uid})  
+
+def update_review(request):
+    email = request.POST['email']
+    subject = request.POST['subject']
+    message = request.POST['message']
+    uid = User.objects.get(email=request.session['email'])
+    if uid:
+        print('===================',uid)
+        fid = Review.objects.create(uid=uid,subject=subject,message=message)
+        return render(request,"foodblog/index.html",{'uid':uid})
+
