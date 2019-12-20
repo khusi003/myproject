@@ -9,4 +9,13 @@ class User(models.Model):
     created_at= models.DateTimeField(auto_now_add=True,blank=False)
     updated_at = models.DateTimeField(auto_now = True, blank=False)
     otp = models.IntegerField(default = 459)
-    pic=models.FileField(upload_to='img/',default='img/avatar.png')
+    pic=models.FileField(upload_to='foodbolg/img/',default='foodbolg/img/avatar.png')
+
+class Review(models.Model):
+    u_id = models.ForeignKey(User, on_delete = models.CASCADE)  
+    subject = models.CharField(max_length=500)
+    message = models.CharField(max_length=500)
+     
+class Gallary(models.Model):
+    pic=models.FileField(upload_to='foodbolg/img/')
+    

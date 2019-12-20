@@ -45,14 +45,14 @@
 					<a href="#"><i class="fa fa-linkedin"></i></a>
 				</div>
 				<div class="user-panel">
-					<a href="#">Register</a> / 
-					<a href="#">Login</a>
+					<a href="{% url 'registration-page' %}">Register</a> / 
+					<a href="{% url 'loginpage' %}">Login</a>
 				</div>
 			</div>
 		</div>
 		<div class="header-bottom">
 			<div class="container">
-				<a href="index.html" class="site-logo">
+				<a href="{% url 'home' %}" class="site-logo">
 					<img src="{% static 'foodblog/img/logo.png' %}" alt="">
 				</a>
 				<div class="nav-switch">
@@ -62,10 +62,10 @@
 					<a href="#"><i class="fa fa-search"></i></a>
 				</div>
 				<ul class="main-menu">
-					<li><a href="index.html">Home</a></li>
+					<li><a href="{% url 'home' %}">Home</a></li>
 					<li><a href="about.html">Features</a></li>
 					<li><a href="recipes.html">Receipies</a></li>
-					<li><a href="#">Reviews</a></li>
+					<li><a href="{% url 'review' %}">Reviews</a></li>
 					<li><a href="contact.html">Contact</a></li>
 				</ul>
 			</div>
@@ -74,41 +74,6 @@
 	<!-- Header section end -->
 
 
-	<!-- Hero section -->
-	<section class="page-top-section set-bg" data-setbg="{% static 'foodblog/img/page-top-bg.jpg' %}">
-		<div class="container">
-			<h2>Contact</h2>
-		</div>
-	</section>
-	<!-- Hero section end -->
-
-
-
-	<!-- Search section -->
-	<div class="search-form-section">
-		<div class="sf-warp">
-			<div class="container">
-				<form class="big-search-form">
-					<select>
-						<option>All Recipes Categories</option>
-						<option>Pizza</option>
-						<option>Salads</option>
-						<option>Desserts</option>
-						<option>Side Dishes</option>
-					</select>
-					<select>
-						<option>All Ingredients</option>
-						<option>Breakfast</option>
-						<option>Lunch</option>
-						<option>Dinner</option>
-					</select>
-					<input type="text" placeholder="Search Receipies">
-					<button class="bsf-btn">Search</button>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- Search section end -->
 
 	<section class="contact-section spad">
 		<div class="container">
@@ -116,17 +81,17 @@
 				<div class="col-lg-8">
 					<div class="contact-form-warp">
 						<h4>Leave a comment</h4>
-						<form class="contact-form">
+						<form class="contact-form" action="" method="POST">
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<input type="text" placeholder="Name">
 								</div>
 								<div class="col-md-6">
-									<input type="text" placeholder="E-mail">
+									<input type="hidden" placeholder="E-mail">
 								</div>
 								<div class="col-md-12">
-									<input type="text" placeholder="Subject">
-									<textarea placeholder="Message"></textarea>
+									<input type="text" placeholder="Subject" name="subject">
+									<textarea placeholder="Message" name="message"></textarea>
 									<button class="site-btn">Send</button>
 								</div>
 							</div>
@@ -166,8 +131,7 @@
 				</div>
 			</div>
 			<!-- map -->
-			<div class="location-map" id="map-canvas"></div>	
-		</div>
+			</div>
 	</section>
 
 	<!-- Gallery section -->

@@ -31,5 +31,10 @@ urlpatterns = [
 
     path('send-otp/',views.send_otp,name='send-otp'),
     path('reset-password/',views.reset_password,name='reset-password'),
-    path('profile-view/',views.profile_view,name='profile-view')
+    path('profile-view/',views.profile_view,name='profile-view'),
+    path('update-profile',views.update_profile,name='update-profile'),
+    path('foodgallary',views.foodgallary,name='foodgallary'),
+    path('upload-gallary/',views.upload_gallary,name='upload-gallary'),
+    path('review/',views.review,name='review'),
+
 ]

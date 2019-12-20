@@ -122,4 +122,34 @@ def reset_password(request):
 def profile_view(request):
     if 'email' in request.session:
         uid = User.objects.get(email=request.session['email'])
-        return render(request,'foodblog/profile.html',{'uid':uid})        
+        return render(request,'foodblog/profile.html',{'uid':uid}) 
+
+def update_profile(request):
+    # pic = request.FILES['pic']
+    return render(request,'foodblog/edit_profile.html')               
+
+def foodgallary(request):
+    try:
+        data = Gallary.objects.all()
+        if data:
+            for i in data:
+                print('======================================',i.pic)
+            return render(request,"foodblog/foodgallary.html",{'data':data})
+        else:
+            return render(request,"foodblog/foodgallary.html")
+    except:    
+        return render(request,"foodblog/foodgallary.html")
+
+def upload_gallary(request):
+    try:
+        pic = request.FILES['pic']
+        uid = Gallary.objects.create(pic=pic)
+        data = Gallary.objects.all()
+        return render(request,"foodblog/foodgallary.html",{'data':data})
+
+    except:    
+        return render(request,"foodblog/index.html")
+
+
+def review(request):
+    return render(request,'foodblog/review.html')        
